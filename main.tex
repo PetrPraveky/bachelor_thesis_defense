@@ -293,8 +293,8 @@
 \begin{column}{0.35\textwidth}
 	\begin{itemize}
 	\item Opportunities to evaluate UAV systems in challenging real-world environments are limited.
-	\item Increased need for high-fidelity virtual environments for simulation, testing and training.
-	\item Creating realistic virtual environments manually is challenging and time consuming process.
+	\item High-fidelity virtual environments are needed for simulation, testing and training.
+	\item Manual creation of realistic virtual environments is challenging and time consuming process.
 	\end{itemize}
 \end{column}
 \begin{column}{0.65\textwidth}
@@ -317,10 +317,10 @@
 
 \begin{column}{0.45\textwidth}
 	\begin{itemize}
-		\item Introduce a method of autonomous environment generation.
-		\item Implement the pipeline as Unreal Engine~5 plugin.
-		\item Generate environments using the proposed method.
-		\item Create datasets from the generated environments using Flight Forge simulator.
+		\item Design a method of autonomous environment generation.
+		\item Implement the workflow as an Unreal Engine~5 plugin.
+		\item Generate multiple environments using the proposed method.
+		\item Create datasets from the generated environments using the Flight Forge simulator.
 		\item Evaluate selected mapping frameworks using the created datasets.
 	\end{itemize}
 \end{column}
@@ -348,17 +348,17 @@
 \begin{column}{0.45\textwidth}
 	\begin{block}{Skeletonization}
 		\begin{itemize}
-			\item Jain--Kumar algorithm
-			\item Creates 1-px wide skeleton from binary mask.
-			\item Can cause undesired branching if the binary mask is not smooth.
-			\item Polyline used for spline interpolation is easy to create from 1-px wide skeleton.
+			\item Jain--Kumar thinning algorithm.
+			\item Creates a 1-pixel-wide skeleton from a binary mask.
+			\item May create undesired branches if the mask does not have smooth outlines.
+			\item The 1-pixel-wide skeleton simplifies polyline extraction and spline interpolation.
 		\end{itemize}
 	\end{block}	
 	
 	\begin{block}{Mask Smoothing}
 		\begin{itemize}
-			\item Smoothing is done by utilizing Gaussian blur.
-			\item Can reduce branching of the skeletonization while maintaining the general shape of the skeleton.
+			\item Smoothing is performed using a Gaussian blur.
+			\item Reduces undesired branching of the skeleton while maintaining the general shape of the skeleton.
 		\end{itemize}
 	\end{block}	
 \end{column}
@@ -367,13 +367,13 @@
 	\begin{figure}[h]
 		\centering%
 		\includegraphics[keepaspectratio,height=2.5cm]{fig/screenshots/image_skel_1.png}
-		\caption{Skeletonization without smoothing}
+		\caption{Skeletonization without mask smoothing}
 	\end{figure}
 	
 	\begin{figure}[h]
 		\centering%
 		\includegraphics[keepaspectratio,height=2.5cm]{fig/screenshots/image_skel_2.png}%
-		\caption{Skeletonization with smoothing}
+		\caption{Skeletonization with mask smoothing}
 	\end{figure}
 \end{column}
 
@@ -391,9 +391,9 @@
 \begin{column}{0.45\textwidth}
 	\begin{block}{Biome Map}
 		\begin{itemize}
-			\item Segmentation can be used as biome map.
-			\item Faster biome generation.
-			\item Can not be easily manually adjusted.
+			\item Segmentation image can be used directly as a biome map.
+			\item Faster biome creation.
+			\item Difficult to adjust manually.
 		\end{itemize}
 	\end{block}
 	
@@ -407,14 +407,15 @@
 \begin{column}{0.45\textwidth}
 	\begin{block}{Biome Spline}
 		\begin{itemize}
-			\item Can be easily adjusted.
-			\item Creation is more time consuming.
+			\item Biome boundaries are represented by editable splines.
+			\item Easier manual adjustment.
+			\item More time-consuming to create and configure.
 		\end{itemize}
 	\end{block}
 	
 	\begin{figure}[h]
 		\centering%
-		\includegraphics[keepaspectratio,height=6cm]{fig/screenshots/biome_spline.png}
+		\includegraphics[keepaspectratio,height=5cm]{fig/screenshots/biome_spline.png}
 	\end{figure}
 \end{column}
 	
