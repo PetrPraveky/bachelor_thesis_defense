@@ -93,7 +93,7 @@
 
 	\path[->] ($(in_si.east) + (0.0, 0)$) edge [] node[above, midway, shift = {(1.0, -1.95)}] {
 		\begin{tabular}{c}
-			\footnotesize Segmentation Legend is\\
+			\footnotesize Segmentation legend is\\
 			\footnotesize used to create binary\\
 			\footnotesize mask from segmentation
 	\end{tabular}} ($(bm_ex.west) + (0.0, 0.00)$);
@@ -147,8 +147,8 @@
 	($(bm_skel.east) + (0.8, 1)$) -- ($(bm_skel.east) + (0.8, 1)$)
 	edge [-] ($(bm_skel.east) + (0.8, -2.8)$) -- ($(bm_skel.east) + (0.8, -2.8)$) edge [-] ($(ws.west) + (0.0, 0.2)$);
 	
-	\path[dashed,<-] ($(ls_gen.east) + (0.0, 0)$) edge [] node[above, midway, shift = {(0.0, 0.0)}] {}
-	($(bm_skel.east) + (0.8, 1)$) -- ($(bm_skel.east) + (0.8, 1)$)
-	edge [-] ($(bm_skel.east) + (0.8, -4.8)$) -- ($(bm_skel.east) + (0.8, -4.8)$) edge [-] ($(bs.west) + (0.0, 0.2)$);
+	%\path[dashed,<-] ($(ls_gen.east) + (0.0, 0)$) edge [] node[above, midway, shift = {(0.0, 0.0)}] {}
+	%($(bm_skel.east) + (0.8, 1)$) -- ($(bm_skel.east) + (0.8, 1)$)
+	%edge [-] ($(bm_skel.east) + (0.8, -4.8)$) -- ($(bm_skel.east) + (0.8, -4.8)$) edge [-] ($(bs.west) + (0.0, 0.2)$);
 \end{tikzpicture}
 
