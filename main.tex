@@ -290,17 +290,18 @@
 
 \begin{columns}[T,onlytextwidth]
 	
-\begin{column}{0.35\textwidth}
+\begin{column}{0.45\textwidth}
 	\begin{itemize}
 	\item Opportunities to evaluate UAV systems in challenging real-world environments are limited.
 	\item High-fidelity virtual environments are needed for simulation, testing and training.
-	\item Manual creation of realistic virtual environments is challenging and time consuming process.
+	\item Manual creation of realistic large-scale virtual environments is challenging and time consuming process.
+	\item Mapping systems are not tested on large datasets.
 	\end{itemize}
 \end{column}
-\begin{column}{0.65\textwidth}
+\begin{column}{0.55\textwidth}
 	\begin{figure}[h]
 		\centering%
-		\includegraphics[keepaspectratio,height=7cm]{fig/screenshots/simulation.png}
+		\includegraphics[keepaspectratio,height=7cm]{fig/screenshots/desert_oasis_1.jpg}
 	\end{figure}
 \end{column}
 	
@@ -311,13 +312,11 @@
 \begin{frame}
 \frametitle{Thesis Objectives}
 
-% todo obrázek here asi taky ale jaký??? Nebo udělat 2/3 blocky vedle sebe?
-
 \begin{columns}[T,onlytextwidth]
 
-\begin{column}{0.45\textwidth}
+\begin{column}{0.35\textwidth}
 	\begin{itemize}
-		\item Design a method of autonomous environment generation.
+		\item Design a method of autonomous environment generation from real-life data.
 		\item Implement the workflow as an Unreal Engine~5 plugin.
 		\item Generate multiple environments using the proposed method.
 		\item Create datasets from the generated environments using the Flight Forge simulator.
@@ -325,17 +324,31 @@
 	\end{itemize}
 \end{column}
 
+\begin{column}{0.65\textwidth}
+		\begin{figure}[h]
+		\centering%
+		\includegraphics[keepaspectratio,height=6cm]{fig/drawio/pipeline/simplified_pipeline.drawio.png}
+	\end{figure}
+\end{column}
+
 \end{columns}
 
 \end{frame}
 
+
+
 \begin{frame}
 \frametitle{Proposed Pipeline}
 
+% todo maybe to předělat z tohoto světa na Etretat, ten to má taky docela "pěkné"
 \begin{figure}
-	\begin{adjustbox}{max totalsize={1.1\textwidth}{.75\textheight}, center}
-		\input{./fig/tikz/pipeline_diagram.tex}
-	\end{adjustbox}
+	%\begin{adjustbox}{max totalsize={1.0\textwidth}{.75\textheight}, center}
+	%	\input{./fig/tikz/pipeline_diagram.tex}
+	%\end{adjustbox}
+	\begin{figure}[h]
+		\centering%
+		\includegraphics[keepaspectratio,height=8cm]{fig/drawio/pipeline/pipeline.drawio.png}
+	\end{figure}
 \end{figure}
 
 \end{frame}
@@ -490,29 +503,44 @@
 
 \begin{frame}[t]
 \frametitle{Generated Environments}
-
+	
 \vspace*{-0.1cm}
-
+	
 \EnvironmentPair
-{fig/screenshots/desert_oasis_1.jpg}
-{Desert Oasis}
-{fig/screenshots/etretat_cliffs_1.jpg}
-{\'{E}tretat Cliffs}
-
+{fig/screenshots/grand_canyon_1.jpg}
+{Generated Grand Canyon environment.}
+{fig/screenshots/grand_canyon_real.jpg}
+{Grand Canyon captured on Google Maps.}
+	
 \end{frame}
 
-\begin{frame}[t]
-\frametitle{Generated Environments}
+% todo maybe add the rest of the generated environemnts?
 
-\vspace*{-0.1cm}
+% \begin{frame}[t]
+% \frametitle{Generated Environments}
 
-\EnvironmentPair
-{fig/screenshots/grand_canyon_2.jpg}
-{Grand Canyon}
-{fig/screenshots/studlagil_canyon_1.jpg}
-{Stu{\dh}lagil Canyon}
+% \vspace*{-0.1cm}
 
-\end{frame}
+% \EnvironmentPair
+% {fig/screenshots/desert_oasis_1.jpg}
+% {Desert Oasis}
+% {fig/screenshots/etretat_cliffs_1.jpg}
+% {\'{E}tretat Cliffs}
+
+% \end{frame}
+
+% \begin{frame}[t]
+% \frametitle{Generated Environments}
+
+% \vspace*{-0.1cm}
+
+% \EnvironmentPair
+% {fig/screenshots/grand_canyon_2.jpg}
+% {Grand Canyon}
+% {fig/screenshots/studlagil_canyon_1.jpg}
+% {Stu{\dh}lagil Canyon}
+
+% \end{frame}
 
 \begin{frame}[t]
 \frametitle{Performance Metrics}	
@@ -529,6 +557,8 @@
 			\item Captured performance metrics: CPU Usage, Memory Usage and Point cloud insertion time.
 		\end{itemize}
 	\end{block}
+	
+	% todo add maybe here an octomap? or something
 \end{column}
 
 \begin{column}{0.6\textwidth}
