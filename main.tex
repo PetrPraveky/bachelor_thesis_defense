@@ -302,6 +302,7 @@
 	\begin{figure}[h]
 		\centering%
 		\includegraphics[keepaspectratio,height=7cm]{fig/screenshots/desert_oasis_1.jpg}
+		\caption{Generated Desert Oasis environment.}
 	\end{figure}
 \end{column}
 	
@@ -333,6 +334,9 @@
 
 \end{columns}
 
+\vspace{0.8cm}
+\vfill {\footnotesize Height maps were generated using: \url{https://manticorp.github.io/unrealheightmap/}.}
+
 \end{frame}
 
 
@@ -340,7 +344,6 @@
 \begin{frame}
 \frametitle{Proposed Pipeline}
 
-% todo maybe to předělat z tohoto světa na Etretat, ten to má taky docela "pěkné"
 \begin{figure}
 	%\begin{adjustbox}{max totalsize={1.0\textwidth}{.75\textheight}, center}
 	%	\input{./fig/tikz/pipeline_diagram.tex}
@@ -394,6 +397,47 @@
 
 \end{frame}
 
+\begin{frame}[t]
+\frametitle{Polyline Point Reduction and Spline Interpolation}	
+
+\vspace*{-0.5cm}	
+
+\begin{columns}[T,onlytextwidth]
+
+\begin{column}{0.50\textwidth}
+	\begin{block}{Polyline Point Reduction}
+		\begin{itemize}
+			\item Polylines created from skeletons may contain large amount of redundant points.
+			\item Douglas--Peucker Algorithm.
+			\item The amount of points is reduced while maintaining the general shape of the polyline.
+		\end{itemize}
+	\end{block}
+
+	\begin{figure}
+		\hspace*{-1cm}
+ 		\begin{adjustbox}{scale=1, center}
+ 			\input{./fig/tikz/douglas_peucker.tex}
+ 		\end{adjustbox}
+ 	\end{figure}
+\end{column}
+
+\begin{column}{0.40\textwidth}
+	\begin{block}{Spline Interpolation}
+		\begin{itemize}
+			\item Catmull--Rom Spline Interpolation from polyline algorithm creates B\'ezier curves.
+			\item B\'ezier curves are easily converted to Hermite splines, which are used by Unreal Engine~5.
+			\item B\'ezier curves can be subdivided using de Casteljau's algorithm.
+		\end{itemize}
+	\end{block}
+
+	\hspace*{-2.5cm}
+	\includegraphics[keepaspectratio,height=4cm]{fig/pdf/catmull_rom.pdf}	
+\end{column}
+
+\end{columns}
+
+\end{frame}
+
 \begin{frame}
 \frametitle{Biome Representation}
 
@@ -435,34 +479,6 @@
 \end{columns}
 	
 \end{frame}
-
-% \begin{frame}[t]
-% \frametitle{Polyline Point Reduction}	
-	
-% \begin{columns}[T,onlytextwidth]
-
-% \begin{column}{0.60\textwidth}
-% 	\begin{figure}
-% 		\hspace*{-1cm}
-% 		\begin{adjustbox}{scale=1.5, center}
-% 			\input{./fig/tikz/douglas_peucker.tex}
-% 		\end{adjustbox}
-% 	\end{figure}
-% \end{column}
-
-% \begin{column}{0.40\textwidth}
-% 	\begin{block}{Polyline Point Reduction}
-% 		\begin{itemize}
-% 			\item Polylines created from skeletons may contain large amount of redundant points.
-% 			\item Douglas--Peucker Algorithm.
-% 			\item The amount of points is reduced while maintaining the general shape of the polyline.
-% 		\end{itemize}
-% 	\end{block}
-% \end{column}
-
-% \end{columns}
-	
-% \end{frame}
 
 % \begin{frame}[t]
 % \frametitle{Spline Interpolation}	
@@ -516,18 +532,18 @@
 
 % todo maybe add the rest of the generated environemnts?
 
-% \begin{frame}[t]
-% \frametitle{Generated Environments}
+\begin{frame}[t]
+\frametitle{Generated Environments}
 
-% \vspace*{-0.1cm}
+\vspace*{-0.1cm}
 
-% \EnvironmentPair
-% {fig/screenshots/desert_oasis_1.jpg}
-% {Desert Oasis}
-% {fig/screenshots/etretat_cliffs_1.jpg}
-% {\'{E}tretat Cliffs}
+\EnvironmentPair
+{fig/screenshots/studlagil_canyon_1.jpg}
+{Generated Stu{\dh}lagil Canyon environment}
+{fig/screenshots/etretat_cliffs_1.jpg}
+{Generated \'{E}tretat Cliffs environment}
 
-% \end{frame}
+\end{frame}
 
 % \begin{frame}[t]
 % \frametitle{Generated Environments}
@@ -598,19 +614,93 @@
 
 \end{frame}
 
+% \begin{frame}
+% \frametitle{Thank You}
+	
+% \end{frame}
+
 \begin{frame}
-\frametitle{Thank You}	
+\frametitle{Questions}	
+
+\centering
+\begin{minipage}{0.7\textwidth}
+	\begin{block}{Jak velké (na kilometry) světy jde vygenerovat?}
+		\begin{itemize}
+			\item Velikostní omezení světů není, ovšem rozlišení meshe terénu je a přesně stanovené hodnoty. 
+			\item Omezujícím faktorem při generaci světů je PCG Biome Core plugin, který vyžaduje velkou spotřebu paměti.
+			\item Největší svět co jsem generoval byl okolo $10\times10$ km.
+		\end{itemize}
+	\end{block}
+\end{minipage}
 	
 \end{frame}
 
-%\begin{frame}
-%\frametitle{Questions}	
+\begin{frame}
+\frametitle{Questions}	
 
-%\begin{center}
-%	\text{TODO}
-%\end{center}
+\centering
+\begin{minipage}{0.7\textwidth}
+	\begin{block}{Proč 3 ze 4 světů obsahují kaňon?}
+		\begin{itemize}
+			\item Vygenerované světy obsahují, oázu, útesy a dva kaňony.
+			\item Kaňony byly vybrány z důvodu, že v Flight Forge simulátoru jsou převážně světy pložší.
+		\end{itemize}
+	\end{block}
+\end{minipage}
 	
-%\end{frame}
+\end{frame}
+
+\begin{frame}
+\frametitle{Questions}	
+	
+\begin{columns}[T,onlytextwidth]
+	
+\begin{column}{0.5\textwidth}
+	
+\end{column}	
+
+\end{columns}
+
+\centering
+\begin{minipage}{0.7\textwidth}
+	\begin{block}{O kolik náročnější by pro uživatele bylo nakreslit splines přímo v editoru?}
+		\begin{itemize}
+			\item Body a tangenty spline se rozmisťují a upravují manuálně.
+			\item Kreslení komplexní spline je časově náročné
+			\item Problémem jsou křižovatky u landscape splines.
+		\end{itemize}
+	\end{block}
+\end{minipage}
+	
+\end{frame}
+
+\begin{frame}
+\frametitle{Questions}	
+
+\centering
+\begin{minipage}{0.7\textwidth}
+	\begin{block}{Jsou data z vygenerovaného datasetu použitelná pro vizuální odometrii?}
+		\begin{itemize}
+			\item Ano, ale tento výsledek není příliš vypovídající, protože u kvadrokoptér bývá hlavním problémem IMU (Inertil Measurement Unit), nikoli množstvím obrazových příznaků.
+		\end{itemize}
+	\end{block}
+\end{minipage}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Questions}	
+	
+\centering
+\begin{minipage}{0.7\textwidth}
+	\begin{block}{Už funguje odkaz na dataset?}
+		\begin{itemize}
+			\item Ano
+		\end{itemize}
+	\end{block}
+\end{minipage}
+	
+\end{frame}
 
 
 
