@@ -626,7 +626,11 @@
 \begin{minipage}{0.7\textwidth}
 	\begin{block}{Jak velké (na kilometry) světy jde vygenerovat?}
 		\begin{itemize}
-			\item Velikostní omezení světů není, ovšem rozlišení meshe terénu je a přesně stanovené hodnoty. 
+			\item Velikostní omezení světů v pluginu není, ovšem je zde omezení hustoty bodů terénu. 
+			\item Pro rozestup bodů $1$m bude největší možný svět:
+			\begin{equation*}
+				((8129 - 1) * 1)^2 \approx 66.06\text{km}^2\text{ ($8.128\times8.128$ km)}
+			\end{equation*}
 			\item Omezujícím faktorem při generaci světů je PCG Biome Core plugin, který vyžaduje velkou spotřebu paměti.
 			\item Největší svět co jsem generoval byl okolo $10\times10$ km.
 		\end{itemize}
@@ -681,7 +685,7 @@
 \begin{minipage}{0.7\textwidth}
 	\begin{block}{Jsou data z vygenerovaného datasetu použitelná pro vizuální odometrii?}
 		\begin{itemize}
-			\item Ano, ale tento výsledek není příliš vypovídající, protože u kvadrokoptér bývá hlavním problémem IMU (Inertil Measurement Unit), nikoli množstvím obrazových příznaků.
+			\item Ano, ale tento výsledek není příliš vypovídající, protože u kvadrokoptér bývá hlavním problémem IMU (Inertial Measurement Unit), nikoli množství obrazových příznaků.
 		\end{itemize}
 	\end{block}
 \end{minipage}
@@ -696,6 +700,7 @@
 	\begin{block}{Už funguje odkaz na dataset?}
 		\begin{itemize}
 			\item Ano
+			\item \url{https://mrs.fel.cvut.cz/kucera2026thesis}
 		\end{itemize}
 	\end{block}
 \end{minipage}
